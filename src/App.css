@@ -19,17 +19,21 @@ h2 {
 }
 
 .app-input {
-  height: 35px;
+  height: 20px;
+  width: 500px;
   margin: 20px;
   border: 2px solid black;
-  padding: 10px;
-  font-size: 14px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
   font-family: "Lato", sans-serif;
+  background-color: #a7a9be;
+  color: #0f0e17;
 }
 
 .result-image {
   margin-top: 20px;
-  width: 350px;
+  width: 500px;
 }
 
 .lds-ripple {
@@ -40,7 +44,7 @@ h2 {
 }
 .lds-ripple div {
   position: absolute;
-  border: 4px solid #fff;
+  border: 4px solid #ff8906;
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -77,4 +81,31 @@ h2 {
     height: 72px;
     opacity: 0;
   }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 3em;
+  max-width: 600px;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.9em;
+  width: 532px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #ff8906;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
