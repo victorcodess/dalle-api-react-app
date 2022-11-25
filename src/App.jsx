@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
+import config from "../config";
 import "./App.css";
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
   const [placeholder, setPlaceholder] = useState(
     "Search Bears with Paint Brushes the Starry Night, painted by Vincent Van Gogh.."
   );
+
   const configuration = new Configuration({
-    apiKey: import.meta.env.Open_AI_Key,
+    apiKey: import.meta.env.VITE_Open_AI_Key,
   });
 
   const openai = new OpenAIApi(configuration);
@@ -27,6 +29,11 @@ function App() {
     console.log(res);
     setResult(res.data.data[0].url);
   };
+
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 13) generateImage();
+  };
+
   return (
     <div className="app-main">
       {loading ? (
@@ -40,14 +47,16 @@ function App() {
       ) : (
         <>
           <h2>Generate an Image using Open AI API</h2>
-
-          <input
-            className="app-input"
-            type="text"
-            placeholder={placeholder}
-            onChange={(e) => setPrompt(e.target.value)}
-          />
-          <button onClick={generateImage}>Generate an Image</button>
+          <form action="">
+            <input
+              className="app-input"
+              type="text"
+              placeholder={placeholder}
+              onChange={(e) => setPrompt(e.target.value)}
+              onKeyPress={handleKeyPress}
+            />
+            <button onClick={generateImage}>Generate an Image</button>
+          </form>
           {result.length > 0 ? (
             <img className="result-image" src={result} alt="result" />
           ) : (
