@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
-import config from "../config";
 import "./App.css";
 
 function App() {
